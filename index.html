@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <base href="/hys-web/">
+
+  <meta charset="UTF-8">
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <meta name="description" content="Community for students.">
+
+  <!-- iOS meta tags & icons -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="HyS">
+  <link rel="apple-touch-icon" href="icons/Icon-192.png">
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico"/>
+  <link rel="icon" type="image/x-icon" href="favicon.ico"/>
+
+  <title>HyS</title>
+  <link rel="manifest" href="manifest.json">
+  <script src="assets/packages/flutter_tex/js/flutter_tex.js"></script>
+  <script type="text/javascript">window.flutterWebRenderer = "html";</script>
+  <script src="https://cdn.jsdelivr.net/npm/afterglowplayer@1.x"></script>
+  
+</head>
+<body oncontextmenu="return false;">
+  <!-- This script installs service_worker.js to provide PWA functionality to
+       application. For more information, see:
+       https://developers.google.com/web/fundamentals/primers/service-workers -->
+
+       <!-- <script src="main.dart.js" type="application/javascript"></script> -->
+       <a id="triggerVideoPlayer" class="afterglow" href="#videoPlayer"></a>
+       <video id="videoPlayer" width="960" height="540" data-skin="dark"></video>
+
+       <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+       <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+       <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+       <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+       <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-functions.js"></script>
+       <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-storage.js"></script>
+       <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-messaging.js"></script>
+  
+       
+       <script>
+         var firebaseConfig = {
+         apiKey: "AIzaSyAsS6xMQewKaayfUQrSccSWSRI4EEfCgS0",
+         authDomain: "hys-pro-41c66.firebaseapp.com",
+         databaseURL: "https://hys-pro-41c66-default-rtdb.firebaseio.com",
+         projectId: "hys-pro-41c66",
+         storageBucket: "hys-pro-41c66.appspot.com",
+         messagingSenderId: "728627807478",
+         appId: "1:728627807478:web:14af922de235285e0658d7",
+         measurementId: "G-P503Q821B4"
+         };
+     
+         // Initialize Firebase
+         firebase.initializeApp(firebaseConfig);
+       </script>
+       
+     
+
+  <script>
+    var serviceWorkerVersion = '834286244';
+    var scriptLoaded = false;
+    function loadMainDartJs() {
+      if (scriptLoaded) {
+        return;
+      }
+      scriptLoaded = true;
+      var scriptTag = document.createElement('script');
+      scriptTag.src = 'main.dart.js';
+      scriptTag.type = 'application/javascript';
+      document.body.append(scriptTag);
+    }
+
+    if ('serviceWorker' in navigator) {
+      // Service workers are supported. Use them.
+      window.addEventListener('load', function () {
+        // Wait for registration to finish before dropping the <script> tag.
+        // Otherwise, the browser will load the script multiple times,
+        // potentially different versions.
+        var serviceWorkerUrl = 'flutter_service_worker.js?v=' + serviceWorkerVersion;
+        navigator.serviceWorker.register("/hys-web/firebase-messaging-sw.js")
+          .then((reg) => {
+            function waitForActivation(serviceWorker) {
+              serviceWorker.addEventListener('statechange', () => {
+                if (serviceWorker.state == 'activated') {
+                  console.log('Installed new service worker.');
+                  loadMainDartJs();
+                }
+              });
+            }
+            if (!reg.active && (reg.installing || reg.waiting)) {
+              // No active web worker and we have installed or are installing
+              // one for the first time. Simply wait for it to activate.
+              waitForActivation(reg.installing || reg.waiting);
+            } else if (!reg.active.scriptURL.endsWith(serviceWorkerVersion)) {
+              // When the app updates the serviceWorkerVersion changes, so we
+              // need to ask the service worker to update.
+              console.log('New service worker available.');
+              reg.update();
+              waitForActivation(reg.installing);
+            } else {
+              // Existing service worker is still good.
+              console.log('Loading app from service worker.');
+              loadMainDartJs();
+            }
+          });
+
+        // If service worker doesn't succeed in a reasonable amount of time,
+        // fallback to plaint <script> tag.
+        setTimeout(() => {
+          if (!scriptLoaded) {
+            console.warn(
+              'Failed to load app from service worker. Falling back to plain <script> tag.',
+            );
+            loadMainDartJs();
+          }
+        }, 4000);
+      });
+    } else {
+      // Service workers not supported. Just drop the <script> tag.
+      loadMainDartJs();
+    }
+  </script>
+  <script>
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", function () {
+        navigator.serviceWorker.register("/hys-web/flutter_service_worker.js");
+        navigator.serviceWorker.register("/hys-web/firebase-messaging-sw.js");
+      });
+    }
+  </script>
+
+<!--  <script>-->
+<!--      -->
+<!--      async function registerWorker() {-->
+<!--console.log('Registering service worker');-->
+<!--const registration = await navigator.serviceWorker.-->
+<!--register('/firebase-messaging-sw.js', {scope: '/'});-->
+<!--console.log('Registered service worker');-->
+<!--const subscription = await registration.pushManager.-->
+<!--subscribe({-->
+<!--userVisibleOnly: true,-->
+<!--applicationServerKey: 'my_VAPID'-->
+<!--});-->
+<!--}-->
+<!--      -->
+<!--      -->
+<!--  </script>-->
+
+
+
+  <script src="AgoraRtcWrapper.bundle.js" type="application/javascript"></script>
+  <script src="main.dart.js" type="application/javascript"></script>
+</body>
+</html>
