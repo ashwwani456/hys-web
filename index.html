@@ -82,7 +82,7 @@
         // Otherwise, the browser will load the script multiple times,
         // potentially different versions.
         var serviceWorkerUrl = 'flutter_service_worker.js?v=' + serviceWorkerVersion;
-        navigator.serviceWorker.register("/firebase-messaging-sw.js")
+        navigator.serviceWorker.register("/hys-web/firebase-messaging-sw.js")
           .then((reg) => {
             function waitForActivation(serviceWorker) {
               serviceWorker.addEventListener('statechange', () => {
@@ -128,8 +128,8 @@
   <script>
     if ("serviceWorker" in navigator) {
       window.addEventListener("load", function () {
-        navigator.serviceWorker.register("/flutter_service_worker.js");
-        navigator.serviceWorker.register("/firebase-messaging-sw.js");
+        navigator.serviceWorker.register("/hys-web/flutter_service_worker.js");
+        navigator.serviceWorker.register("/hys-web/firebase-messaging-sw.js");
       });
     }
   </script>
