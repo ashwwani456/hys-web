@@ -96,7 +96,7 @@ const RESOURCES = {
 "assets/assets/epub_viewer/asset-manifest.json": "e7e0886f9de09563eb57f906fad23a8b",
 "assets/assets/epub_viewer/images/logo.png": "6d0aa76025c6aa28c03cb2d1e172a968",
 "assets/assets/epub_viewer/index.html": "a9d1f979d8ca151e7c799ed1d427c24b",
-"/": "d62e94f84703ff6c60298729740f46a7",
+"/": "a12530ae5dfe8f947fa4fc9aa40b4bdd",
 "assets/assets/epub_viewer/manifest.json": "384a582cf49660f87f16eef7a2509d2c",
 "assets/assets/epub_viewer/robots.txt": "fa1ded1ed7c11438a9b0385b1e112850",
 "assets/assets/epub_viewer/static/css/main.4199a992.css": "fd9c307ae673bd86344a94a8c8a01a19",
@@ -533,8 +533,8 @@ const RESOURCES = {
 "icons/Icon-512x512.png": "3382d162605ab3a0adfcf01d873de3f3",
 "icons/Icon-maskable-192.png": "c457ef57daa1d16f64b27b786ec2ea3c",
 "icons/Icon-maskable-512.png": "301a7604d45b3e739efc881eb04896ea",
-"index.html": "d62e94f84703ff6c60298729740f46a7",
-"main.dart.js": "2dc3f496931fe4b3b657699ac9e380fd",
+"index.html": "a12530ae5dfe8f947fa4fc9aa40b4bdd",
+"main.dart.js": "1ee2afdefbac10a2074a55a3d0beecd3",
 "manifest.json": "7c1755639acc82966595d21d15d7588c",
 "version.json": "6815ab0d7ae1779095c4acd42a9b8068"
 };
